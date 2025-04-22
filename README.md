@@ -52,9 +52,29 @@ POST /auth/login
 }
 
 Response
-
 {
   "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9..."
 }
 ```
+### 🔐 JWT Token Format
+- Token is returned in response on successful login
+- Include it in the Authorization header when calling protected endpoints:
+
+```makefile
+Authorization: Bearer <token>
+```
+
+### 🛠️ Running Locally
+
+- Make sure MongoDB is running (can use Docker)
+- Start the service
+
+```bash
+./mvnw spring-boot:run
+```
+
+### 🤝 Integration
+- This service is consumed by user-service, chat-service, and any frontend clients.
+- All other services should validate JWT tokens issued by this service.
+
 
